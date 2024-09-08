@@ -1,4 +1,5 @@
-import { API_URL } from "../app/(home)/page";
+
+import { API_URL } from "../app/constans";
 import styles from "../styles/movie-info.module.css";
 export async function getMoive(id:string) {
   console.log(`Time ${Date.now()}`)
