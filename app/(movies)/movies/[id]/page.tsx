@@ -1,14 +1,20 @@
 import { Suspense } from "react";
 import { API_URL } from "../../../(home)/page";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMoive } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 
+interface IParams {
+  params: {id : string}
+}
 
+export async function generateMetadata({params: {id}} : IParams) {
+  const movie = await getMoive(id);
+  return {
+    title : movie.title
+  }
+}
 
-
-export default async function MovieDetail({ params: { id } }: {
-  params: { id: string };
-}) {
+export default async function MovieDetail({ params: { id } }: IParams) {
 
 
   return <div>
